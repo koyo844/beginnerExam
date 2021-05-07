@@ -20,7 +20,6 @@ public class Exam02Controller {
 		return "exam02";
 	}
 
-	
 	@RequestMapping("/result")
 	public String inputName(String num1, String num2) {
 		//数字を数値に変える
