@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--formを使うため11行目記載-->
+<form action="exam04-result.html" 
+	th:action="@{/ex04/result}" method="post"
+	th:object="${userForm}">
+	
+<!--エラー文-->
+<div th:if="${#fields.hasErrors('name')}"
+	th:errors="*{name}"
+	style="color:red">エラー！</div>
+名前：<input type="text" name="name" th:field="*{name}"><br>
+
+<div th:if="${#fields.hasErrors('age')}"
+	th:errors="*{age}"
+	style="color:red">エラー！</div>
+年齢：<input type="text" name="age" th:field="*{age}"><br>
+
+<div th:if="${#fields.hasErrors('comment')}"
+	th:errors="*{comment}"
+	style="color:red">エラー！</div>
+コメント：<br>
+<input type="text" name="comment" th:field="*{comment}"><br>
+<button>登録</button>
+</form>
+
+</body>
+</html>
