@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.text.NumberFormat;
+
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +29,11 @@ public class Exam03Controller {
 		int total = i + p + t;
 		int taxplus = (int)((int)(i + p + t)*1.1);
 		
+		NumberFormat comma = NumberFormat.getNumberInstance();
+		
 		//applicationスコープに格納
-		application.setAttribute("total", total);
-		application.setAttribute("taxplus", taxplus);
+		application.setAttribute("total", comma.format(total));
+		application.setAttribute("taxplus", comma.format(taxplus));
 		return "exam03-result.html";
 	
 	}
